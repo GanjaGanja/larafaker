@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/customers', function ()
+{
+	$faker = Faker\Factory::create();
+	$limit = 10;
+
+	for ($i=0; $i < $limit; $i++) { 
+		echo $faker->name . ', Email Address: ' . $faker->unique()->email . ', Contact No ' . $faker->phoneNumber . '<br>';
+	}
+});
